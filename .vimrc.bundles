@@ -1,0 +1,53 @@
+call plug#begin('~/.vim/bundle')
+
+"VARIOUS
+Plug 'tpope/vim-eunuch'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-rhubarb'
+Plug 'tpope/vim-surround'
+Plug 'vim-scripts/tComment'
+Plug 'Valloric/MatchTagAlways'
+Plug 'terryma/vim-multiple-cursors'
+Plug 'w0rp/ale'
+
+"UI
+Plug 'altercation/vim-colors-solarized'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'Yggdroot/indentLine'
+" Plug 'jszakmeister/vim-togglecursor'
+
+"USAGE
+Plug 'jiangmiao/auto-pairs'
+
+"JAVASCRIPT
+Plug 'pangloss/vim-javascript'
+Plug 'prettier/vim-prettier', {
+  \ 'do': 'yarn install',
+  \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue'] }
+Plug 'alvan/vim-closetag'
+Plug 'mxw/vim-jsx'
+  let g:jsx_ext_required = 0| " Allow Vim-JSX to highlight *.js files
+
+"RUBY
+Plug 'tpope/vim-endwise'
+Plug 'tpope/vim-rails'
+Plug 'tpope/vim-rake'
+Plug 'vim-ruby/vim-ruby'
+
+"NAVIGATION/FILE
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'scrooloose/nerdtree'
+
+
+" if has('nvim')
+"   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+" else
+"   Plug 'Shougo/deoplete.nvim'
+"   Plug 'roxma/nvim-yarp'
+"   Plug 'roxma/vim-hug-neovim-rpc'
+" endif
+" let g:deoplete#enable_at_startup = 1
+
+call plug#end()

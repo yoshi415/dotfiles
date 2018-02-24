@@ -1,0 +1,36 @@
+" Get off my lawn
+nnoremap <Left> :echoe "Use h"<CR>
+nnoremap <Right> :echoe "Use l"<CR>
+nnoremap <Up> :echoe "Use k"<CR>
+nnoremap <Down> :echoe "Use j"<CR>
+
+" MAPPINGS 
+let mapleader = "\<space>" 
+nnoremap <leader>1 :NERDTreeToggle<CR>
+nnoremap <silent> <leader>2 :NERDTreeFind<CR>
+nnoremap <leader>3 :CtrlP<CR>
+nnoremap , za| " open/closes folds
+nnoremap gV `[v`]| " highlights last inserted text
+nnoremap <leader>w :w<CR> 
+
+" nonoremap something :mksession<CR>
+" nnoremap <leader>cl 0<C-v>$d
+
+" Edit vimrc/zshrc and load vimrc bindings
+nnoremap <leader>ev :vsp $MYVIMRC<CR>
+nnoremap <leader>eb :vsp ~/.vimrc.bundles<CR>
+nnoremap <leader>ez :vsp ~/.zshrc<CR>
+nnoremap <leader>sv :source $MYVIMRC<Cr>
+
+" Split navigation shortcuts
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+
+inoremap jk <ESC>
+
+" In the quickfix window, <CR> is used to jump to the error under the cursor, so undefine the mapping there.
+autocmd BufReadPost quickfix nnoremap <buffer> <CR> <CR>
+autocmd CmdwinEnter * nnoremap <CR> <CR>| " for search history in command line window
+
