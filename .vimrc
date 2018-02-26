@@ -40,16 +40,19 @@ set sidescroll=1
 set splitbelow " opens new panes below instead of above
 set splitright " opens new panes to the right instead of left
 set history=50
+set backupdir=~/.vim/backup
+set directory=~/.vim/backup
+let g:ruby_path = system('echo $HOME/.rbenv/shims')
 
 " Plugin settings
-let g:mta_filetypes = { 'javascript.jsx': 1, 'html': 1 } " Allow MatchTagAlways to highlight JSX
+" let g:mta_filetypes = { 'javascript.jsx': 1, 'html': 1 } " Allow MatchTagAlways to highlight JSX
 let g:airline_solarized_bg='dark'| " Set airline theme for custom statusline
 " rounded separators (extra-powerline-symbols):
 let g:airline_left_sep = "\uE0B4"
 let g:airline_right_sep = "\uE0B6"
 " set the CN (column number) symbol:
 let g:airline_section_z = airline#section#create(["\uE0A1" . '%{line(".")}' . "\uE0A3" . '%{col(".")}'])
-let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.js'
+let g:closetag_filenames = '*.html.erb,*.html,*.xhtml,*.phtml,*.js'
 let g:closetag_xhtml_filenames = '*.xhtml,*.jsx'
 let g:closetag_emptyTags_caseSensitive = 1
 let g:closetag_shortcut = '>'| " Shortcut for closing tags, default is '>'
@@ -58,11 +61,16 @@ let NERDTreeAutoDeleteBuffer = 1| " autodelete the buffer of the file you delete
 let NERDTreeMinimalUI = 1
 let NERDTreeDirArrows = 1
 
-" Change cursor shape between insert and normal mode in iTerm2.app
-if $TERM_PROGRAM =~ "iTerm"
-    let &t_SI = "\<Esc>]50;CursorShape=1\x7" " Vertical bar in insert mode
-    let &t_EI = "\<Esc>]50;CursorShape=0\x7" " Block in normal mode
-endif
+" Change cursor to line in insert mode 
+let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
+let &t_SR = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=2\x7\<Esc>\\"
+let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
+
+" optional reset cursor on start:
+augroup myCmds
+au!
+autocmd VimEnter * silent !echo -ne "\e[2 q"
+augroup END
 
 " When editing a file, always jump to the last known cursor position.
 " Don't do it for commit messages, when the position is invalid, or when

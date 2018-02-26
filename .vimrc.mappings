@@ -12,13 +12,14 @@ nnoremap <leader>3 :CtrlP<CR>
 nnoremap , za| " open/closes folds
 nnoremap gV `[v`]| " highlights last inserted text
 nnoremap <leader>w :w<CR> 
-
+nnoremap <C-A> <esc>ggVG<CR>
 " nonoremap something :mksession<CR>
 " nnoremap <leader>cl 0<C-v>$d
 
 " Edit vimrc/zshrc and load vimrc bindings
 nnoremap <leader>ev :vsp $MYVIMRC<CR>
 nnoremap <leader>eb :vsp ~/.vimrc.bundles<CR>
+nnoremap <leader>em :vsp ~/.vimrc.mappings<CR>
 nnoremap <leader>ez :vsp ~/.zshrc<CR>
 nnoremap <leader>sv :source $MYVIMRC<Cr>
 

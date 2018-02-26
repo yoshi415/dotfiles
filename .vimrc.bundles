@@ -7,19 +7,21 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-surround'
 Plug 'vim-scripts/tComment'
-Plug 'Valloric/MatchTagAlways'
+" Plug 'Valloric/MatchTagAlways'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'w0rp/ale'
+
 
 "UI
 Plug 'altercation/vim-colors-solarized'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'Yggdroot/indentLine'
-" Plug 'jszakmeister/vim-togglecursor'
+Plug 'ajh17/VimCompletesMe'
 
 "USAGE
 Plug 'jiangmiao/auto-pairs'
+Plug 'easymotion/vim-easymotion'
 
 "JAVASCRIPT
 Plug 'pangloss/vim-javascript'
@@ -39,7 +41,6 @@ Plug 'vim-ruby/vim-ruby'
 "NAVIGATION/FILE
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'scrooloose/nerdtree'
-
 
 " if has('nvim')
 "   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
