@@ -1,10 +1,54 @@
 [user]
 	name = Yoshio Varney
 	email = yoshio.varney@gmail.com
-
+[branch]
+  autosetupmerge = true
 [alias]
-  st = status --short --branch
+  #g = !git
+  c = commit
   co = checkout
-  hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
-  please = push --force-with-lease 
+  cp = cherry-pick
+  br = branch
+  df = diff
+  # less verbose status
+  st = status --short --branch
+  s = status
+  please = push --force-with-lease
   ga = add --all
+  commend = commit --amend --no-edit
+  clear = checkout -- .
+
+  #
+  ss = stash save -u
+
+  # make logs pretty
+  hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+  ls = log --pretty=format:"%C(yellow)%h\\ %Creset%s%Cblue\\ [%cn]\\%Cred%d" --decorate
+  ll = ls --numstat
+
+  # list to screen all new commits have been created with the previous pull
+  # usage: `git new HEAD`
+  new = !sh -c 'git log $1@{1}..$1@{0} "$@"'
+
+  # diff minus position / line changes
+  sortdiff = !sh -c 'git diff "$@" | grep "^[+-]" | sort --key=1.2 | uniq -u -s1'
+
+  # see what you've done since yesterday
+  standup = !git log --since yesterday --author $(git config user.email) --pretty=short
+
+  #
+  last = !git --no-pager log -1 --oneline --color
+
+  # see what commits are safe to amend / rebase
+  unpushed = log @{u}..
+
+  # see available alias
+  alias = "!git config -l | grep alias | cut -c 7-"
+  
+[core]
+  editor = vim
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
